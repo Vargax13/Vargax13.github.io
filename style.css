@@ -1,0 +1,206 @@
+/* --- Variáveis Globais de Cor (Mude aqui para mudar o tema) --- */
+:root {
+    --cor-primaria: #007BFF;       /* Azul vibrante */
+    --cor-secundaria: #343A40;    /* Cinza escuro/preto */
+    --cor-fundo: #f8f9fa;         /* Cinza bem claro */
+    --cor-card: #ffffff;         /* Branco */
+    --cor-texto: #333;            /* Cinza escuro (texto) */
+    --cor-texto-claro: #ffffff;
+    --sombra-padrao: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Reset e Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: var(--cor-secundaria);
+    border-bottom: 3px solid var(--cor-primaria);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 2rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor-primaria);
+}
+
+/* --- Cabeçalho (Hero) --- */
+.hero {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    padding: 5rem 1rem;
+    text-align: center;
+}
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+.hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* --- Barra de Navegação --- */
+.navbar {
+    background-color: #333;
+    padding: 1rem;
+    position: sticky; /* Fica presa no topo ao rolar */
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.navbar li {
+    margin: 0 15px;
+}
+.navbar a {
+    color: var(--cor-texto-claro);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+.navbar a:hover {
+    color: var(--cor-primaria);
+}
+
+/* --- Seções de Conteúdo --- */
+.content-section {
+    padding: 3rem 0;
+}
+
+/* --- Lista de Habilidades --- */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Faz as tags quebrarem a linha em telas menores */
+    gap: 10px; /* Espaçamento entre as tags */
+}
+.skills-list li {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* --- Grid de Projetos (Cards) --- */
+.project-grid {
+    display: grid;
+    /* Cria colunas responsivas:
+       - Tenta encaixar o máximo de colunas de 300px que couber
+       - Se não couber, cria uma única coluna de 1fr (ocupa 100%)
+    */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Espaço entre os cards */
+}
+
+.project-card {
+    background-color: var(--cor-card);
+    border-radius: 8px;
+    box-shadow: var(--sombra-padrao);
+    display: flex; /* Para o rodapé ficar sempre embaixo */
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-content {
+    padding: 25px;
+}
+.project-content h3 {
+    color: var(--cor-primaria);
+}
+
+.project-footer {
+    padding: 0 25px 25px 25px;
+}
+
+/* --- Botões --- */
+.btn {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn:hover {
+    background-color: #0056b3; /* Um azul mais escuro */
+    transform: scale(1.05);
+}
+
+/* --- Contato --- */
+.contact-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+/* --- Rodapé --- */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--cor-secundaria);
+    color: #ccc;
+    margin-top: 3rem;
+}
+
+/* --- Responsividade (Media Query Simples) --- */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .navbar {
+        position: static; /* Remove o "sticky" em telas pequenas */
+    }
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
